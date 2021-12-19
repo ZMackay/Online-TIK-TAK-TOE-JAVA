@@ -15,7 +15,7 @@ public final class DBConnection {
     public static Connection con;
     private static String user = "USER";
     private static String pass = "USERPASS50";
-    private static String url = "jdbc:mysql://192.168.0.52:3696/TIKTAKTOE";
+    private static String url = "jdbc:mysql://INTERNAL_IP:PORT/TIKTAKTOE";
 
     public static void startInstance() {
         Connection conTemp = null;
@@ -34,7 +34,7 @@ public final class DBConnection {
         } catch (SQLException e) {
             System.out.println("TRYING SECONDARY METHOD OF CONN");
             try {
-                url = "jdbc:mysql://72.204.107.95:3696/TIKTAKTOE";
+                url = "jdbc:mysql://PUBLIC_IP:PORT/TIKTAKTOE";
                 conTemp = DriverManager.getConnection(url, user, pass);
 
                 if (!conTemp.isClosed()) {
